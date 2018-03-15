@@ -1,0 +1,17 @@
+/*
+ * vue-treeview CSS
+ * v0.1.0
+ * By Guillaume JIBAUT
+ */
+
+ .vue-treeview {
+     padding-left: 20px;
+ }
+
+ .vue-treeview li {
+    list-style: none;
+}
+
+.vue-treeview li a {
+    cursor: pointer;
+}
