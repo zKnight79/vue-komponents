@@ -85,17 +85,3 @@ Vue.component('vue-treeview', {
         }
     }
 });
-
-/*
-Node fields
-- label : The label to display for the node
-- title (optional) : The title (often tooltip) of the node
-- children (optional) : An array of sub-nodes
-- isFolder (optional) : The node can be a folder, even if empty, can be used for lazy-loading
-- isOpen (optional) : The folder is open
-- icon (optional) : The icon to display, instead of default file icon, if the node is not a folder
-- iconFolderClosed (optional) : The icon to display, instead of default closed folder icon, if the node is a folder and is not open
-- iconFolderOpen (optional) : The icon to display, instead of default open folder icon, if the node is a folder and is open
-- loadingIndicator (optional) : The information to display when the node is loading children data
-- lazyLoadChildren (optional method) : A method that'll be used to load children of the node
-*/
