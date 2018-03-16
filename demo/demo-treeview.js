@@ -84,7 +84,6 @@ var appTreeview = new Vue({
                 label: 'Root 5',
                 isFolder: true,
                 lazyLoading: true,
-                loadingIndicator: 'fas fa-sync fa-spin',
                 lazyLoadChildren: function(finishedCallback) {
                     var self = this;
                     setTimeout(function(){

@@ -51,7 +51,11 @@ by Guillaume JIBAUT
         <h3>
             Treeview Demo :
         </h3>
-        <vue-treeview v-bind:data-nodes="nodes"></vue-treeview>
+        <vue-treeview v-bind:data-nodes="nodes"
+                      icon="far fa-sticky-note"
+                      icon-folder-closed="far fa-plus-square"
+                      icon-folder-open="far fa-minus-square"
+        />
     </div>
     <script src="demo-treeview.js"></script>
 </body>
