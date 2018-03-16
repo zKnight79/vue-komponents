@@ -2,23 +2,19 @@ var appPaginator = new Vue({
     el: '#paginator-app',
     data: {
         totalItems: 300,
-        startIndex: 1,
-        updatePaginationCallback: undefined
+        startIndex: 1
     },
     methods: {
-        getDataList: function (pageNum, itemsPerPage) {
+        getDataList: function (pageNum, itemsPerPage, updatePaginationCallback) {
             this.startIndex = (pageNum - 1) * itemsPerPage + 1;
 
-            if (this.updatePaginationCallback !== undefined) {
-                this.updatePaginationCallback(
+            if (typeof updatePaginationCallback === 'function') {
+                updatePaginationCallback(
                     this.totalItems,
                     this.startIndex,
                     itemsPerPage
                 );
             }
-        },
-        setPaginationCallback(updatePaginationCallback) {
-            this.updatePaginationCallback = updatePaginationCallback;
         }
     }
 });

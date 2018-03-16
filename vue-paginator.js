@@ -1,13 +1,13 @@
 /* 
- * Pagination using Vuejs and Bootstrap 4.0.0
+ * Pagination using Vuejs
  * v0.1.0
  * By Guillaume JIBAUT
  */
 
 Vue.component('vue-paginator', {
-    template : '<ul class="pagination mb-0">'
-                +'<li class="page-item" v-bind:class="{ active: page.isActive, \'disabled\': page.isDisabled }" v-for="page in pagination">'
-                  +'<a class="page-link" href="#" v-on:click="changePage(page.targetPage)">'
+    template : '<ul class="vue-paginator">'
+                +'<li v-bind:class="{ \'vue-paginator-active\': page.isActive, \'vue-paginator-disabled\': page.isDisabled }" v-for="page in pagination">'
+                  +'<a href="#" v-on:click="changePage(page.targetPage)">'
                     +'{{ page.label }}'
                   +'</a>'
                 +'</li>'
@@ -37,7 +37,7 @@ Vue.component('vue-paginator', {
     },
     methods : {
         changePage : function(pageNum) {
-            this.$emit('get-page-data', pageNum, this.itemsPerPage);
+            this.$emit('get-page-data', pageNum, this.itemsPerPage, this.updatePagination);
         },
         addToPagination : function(label, targetPage, isActive, isDisabled) {
             this.pagination.push({
@@ -75,7 +75,6 @@ Vue.component('vue-paginator', {
         }
     },
     created : function() {
-        this.$emit('set-pagination-callback', this.updatePagination);
         this.changePage(1);
     }
 });

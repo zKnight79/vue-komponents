@@ -1,0 +1,33 @@
+/*
+ * vue-paginator CSS
+ * v0.1.0
+ * By Guillaume JIBAUT
+ */
+
+ .vue-paginator {
+    padding: 0;
+}
+
+.vue-paginator li {
+   list-style: none;
+   display: inline-block;
+   border: 1px solid lightgray;
+   text-align: center;
+}
+
+.vue-paginator li a {
+    padding: 5px 12px;
+    display: block;
+    text-decoration: none;
+}
+
+.vue-paginator li.vue-paginator-active a {
+    background-color: royalblue;
+    color: white;
+}
+
+.vue-paginator li.vue-paginator-disabled a {
+    background-color: whitesmoke;
+    color: lightslategray;
+    pointer-events: none;
+}

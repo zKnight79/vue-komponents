@@ -12,12 +12,13 @@ by Guillaume JIBAUT
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap 4.0.0 CSS -->
+    <!-- Bootstrap 4.0.0 CSS / This is optional -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     
+    <link rel="stylesheet" href="../vue-paginator.css">
     <link rel="stylesheet" href="../vue-treeview.css">
 
     <!-- Font Awesome 5.0.8, Web Fonts with CSS -->
@@ -35,9 +36,8 @@ by Guillaume JIBAUT
         </h3>
         <p>
             Items {{ startIndex }} to {{ startIndex + 11 }} / {{ totalItems }}
-            <vue-paginator v-on:set-pagination-callback="setPaginationCallback" v-on:get-page-data="getDataList" v-bind:items-per-page="12"
-                v-bind:ellipsis-delta="3"></vue-paginator>
         </p>
+            <vue-paginator v-on:get-page-data="getDataList" v-bind:items-per-page="12" v-bind:ellipsis-delta="3"></vue-paginator>
     </div>
     <script src="../vue-paginator.js"></script>
     <script src="demo-paginator.js"></script>
