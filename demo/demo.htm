@@ -17,15 +17,18 @@ by Guillaume JIBAUT
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="../vue-paginator.css">
-    <link rel="stylesheet" href="../vue-treeview.css">
 
     <!-- Font Awesome 5.0.8, Web Fonts with CSS -->
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
     <!-- VueJS 2.5.13 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    
+    <!-- Vue Komponents -->
+    <link rel="stylesheet" href="../vue-paginator.css">
+    <script src="../vue-paginator.js"></script>
+    <link rel="stylesheet" href="../vue-treeview.css">
+    <script src="../vue-treeview.js"></script>
 </head>
 
 <body>
@@ -37,9 +40,8 @@ by Guillaume JIBAUT
         <p>
             Items {{ startIndex }} to {{ startIndex + 11 }} / {{ totalItems }}
         </p>
-            <vue-paginator v-on:get-page-data="getDataList" v-bind:items-per-page="12" v-bind:ellipsis-delta="3"></vue-paginator>
+        <vue-paginator v-on:get-page-data="getDataList" v-bind:items-per-page="12" v-bind:ellipsis-delta="3" />
     </div>
-    <script src="../vue-paginator.js"></script>
     <script src="demo-paginator.js"></script>
 
     <hr>
@@ -51,7 +53,6 @@ by Guillaume JIBAUT
         </h3>
         <vue-treeview v-bind:data-nodes="nodes"></vue-treeview>
     </div>
-    <script src="../vue-treeview.js"></script>
     <script src="demo-treeview.js"></script>
 </body>
 

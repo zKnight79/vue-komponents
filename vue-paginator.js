@@ -47,11 +47,11 @@ Vue.component('vue-paginator', {
                 isDisabled: isDisabled
             });
         },
-        updatePagination : function(totalItems, startIndex, itemsPerPage) {
+        updatePagination : function(totalItems, startIndex) {
             this.pagination = [];
             
-            var currentPage = Math.ceil(startIndex / itemsPerPage);
-            var lastPage = Math.ceil(totalItems / itemsPerPage);
+            var currentPage = Math.ceil(startIndex / this.itemsPerPage);
+            var lastPage = Math.ceil(totalItems / this.itemsPerPage);
             
             var previousPage = Math.max(1, currentPage - 1);
             this.addToPagination(this.previousLabel, previousPage, false, (previousPage === currentPage));

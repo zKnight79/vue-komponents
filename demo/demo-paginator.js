@@ -11,8 +11,7 @@ var appPaginator = new Vue({
             if (typeof updatePaginationCallback === 'function') {
                 updatePaginationCallback(
                     this.totalItems,
-                    this.startIndex,
-                    itemsPerPage
+                    this.startIndex
                 );
             }
         }
