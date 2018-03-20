@@ -184,6 +184,7 @@ The `<vue-treeview>` tag has several attributes :
 + `icon-folder-closed` : The default icon for closed folder nodes, as a css class that'll be put inside a `<i>` tag (default : `far fa-folder` <i class="far fa-folder"></i> )
 + `icon-folder-open` : The default icon for open folder nodes, as a css class that'll be put inside a `<i>` tag (default : `far fa-folder-open` <i class="far fa-folder-open"></i> )
 + `loading-indicator` : The default indicator displayed when a folder is currently lazy loading its children, as a css class that'll be put inside a `<i>` tag (default : `fas fa-spinner fa-pulse` <i class="fas fa-spinner fa-pulse"></i> )
++ `dev-mode` : An optional boolean that could be set to `true` to generate logs in the console on treeview events (default : `false`)
 
 The supported fields for a node are the following :
 + `label` : This is the text displayed for the node (ex: `"Node 1.2.3"`). This is the only field that is mandatory. You can use any html tag that can be put inside a `<span>`.
@@ -196,6 +197,6 @@ The supported fields for a node are the following :
 + `icon` : An optional icon for the node that replaces the global treeview `icon` (see the `loading-indicator` attribute of the `<vue-treeview>` for more details).
 + `iconFolderClosed` : An optional icon for the node that replaces the global treeview `icon-folder-closed` (see the `icon-folder-closed` attribute of the `<vue-treeview>` for more details).
 + `iconFolderOpen` : An optional icon for the node that replaces the global treeview `icon-folder-open` (see the `icon-folder-open` attribute of the `<vue-treeview>` for more details).
-+ `onClick` :  An optional method that'll be called when the node, if non-folder, is clicked.
++ `onClick` :  An optional method that'll be called when the node, if non-folder, is clicked. The method has no argument.
 
 Check the sources in the [demo] folder to find an example for both components.
