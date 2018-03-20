@@ -8,13 +8,10 @@
 Vue.component('vue-treeview', {
     template: '<ul class="vue-treeview">' +
                 '<li v-for="node in dataNodes">' +
-                  '<a v-if="node.isFolder" v-on:click="onFolderClick(node)">'+
+                  '<a v-on:click="onNodeClick(node)">'+
                     '<i v-bind:class="getNodeClass(node)"></i>&nbsp;' +
+                    '<span v-html="node.label" v-bind:title="node.title"></span>' +
                   '</a>' +
-                  '<span v-else>'+
-                    '<i v-bind:class="getNodeClass(node)"></i>&nbsp;' +
-                  '</span>' +
-                  '<span v-html="node.label" v-bind:title="node.title"></span>' +
                   '<span v-if="node.__isLoading">' +
                     '&nbsp;<i v-bind:class="node.loadingIndicator"></i>&nbsp;' +
                   '</span>' +
@@ -62,21 +59,27 @@ Vue.component('vue-treeview', {
                 return node.icon ? node.icon : this.icon;
             }
         },
-        onFolderClick: function(node) {
-            if (node.hasOwnProperty('isOpen')) {
-                node.isOpen = !node.isOpen;
+        onNodeClick: function(node) {
+            if(node.isFolder) {
+                if (node.hasOwnProperty('isOpen')) {
+                    node.isOpen = !node.isOpen;
+                } else {
+                    Vue.set(node, 'isOpen', true);
+                }
+                if(node.isOpen) {
+                    if(node.lazyLoading) {
+                        if(!node.hasOwnProperty('loadingIndicator')) {
+                            Vue.set(node, 'loadingIndicator', this.loadingIndicator);
+                        }
+                        Vue.set(node, '__isLoading', true);
+                        if(typeof node.lazyLoadChildren === "function") {
+                            node.lazyLoadChildren(this.lazyLoadingFinishedCallback);
+                        }
+                    }
+                }
             } else {
-                Vue.set(node, 'isOpen', true);
-            }
-            if(node.isOpen) {
-                if(node.lazyLoading) {
-                    if(!node.hasOwnProperty('loadingIndicator')) {
-                        Vue.set(node, 'loadingIndicator', this.loadingIndicator);
-                    }
-                    Vue.set(node, '__isLoading', true);
-                    if(typeof node.lazyLoadChildren === "function") {
-                        node.lazyLoadChildren(this.lazyLoadingFinishedCallback);
-                    }
+                if(typeof node.onClick === "function") {
+                    node.onClick();
                 }
             }
         },

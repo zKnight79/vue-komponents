@@ -76,7 +76,10 @@ var appTreeview = new Vue({
                         ]
                     },
                     {
-                        label: 'Node 4.3'
+                        label: 'Node 4.3',
+                        onClick: function() {
+                            alert('You clicked on Node 4.3');
+                        }
                     }
                 ]
             },

@@ -157,7 +157,10 @@ var appTreeview = new Vue({
                         ]
                     },
                     {
-                        label: 'Node 4.3'
+                        label: 'Node 4.3',
+                        onClick: function() {
+                            alert('You clicked on Node 4.3');
+                        }
                     }
                 ]
             }
@@ -193,5 +196,6 @@ The supported fields for a node are the following :
 + `icon` : An optional icon for the node that replaces the global treeview `icon` (see the `loading-indicator` attribute of the `<vue-treeview>` for more details).
 + `iconFolderClosed` : An optional icon for the node that replaces the global treeview `icon-folder-closed` (see the `icon-folder-closed` attribute of the `<vue-treeview>` for more details).
 + `iconFolderOpen` : An optional icon for the node that replaces the global treeview `icon-folder-open` (see the `icon-folder-open` attribute of the `<vue-treeview>` for more details).
++ `onClick` :  An optional method that'll be called when the node, if non-folder, is clicked.
 
 Check the sources in the [demo] folder to find an example for both components.
